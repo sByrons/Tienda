@@ -28,3 +28,23 @@
 p{
     word-spacing: 5px;
 }
+
+a:link{
+    color: crimson;
+    background-color: aquamarine;
+    border: 2px solid aquamarine;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+a:visited{
+    color:black;
+}
+a:hover{
+    color: white;
+    background-color: green;
+}
+a:active{
+    color: white;
+    background-color: purple;
+}
