@@ -3,7 +3,7 @@ package com.Tienda.controller;
 
 import com.Tienda.domain.Categoria;
 import com.Tienda.service.CategoriaService;
-import com.Tienda.service.impl.FirebaseStorageServiceImpl;
+import com.Tienda.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ public class CategoriaController {
     private CategoriaService categoriaService;
     
     @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
+    private FirebaseStorageService firebaseStorageService;
 
     @GetMapping("/listado")
     public String inicio(Model model) {
