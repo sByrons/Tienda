@@ -1,4 +1,3 @@
-
 package com.Tienda.controller;
 
 import com.Tienda.domain.Categoria;
@@ -19,13 +18,13 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
-    
+
     @Autowired
     private ProductoService productoService;
-    
+
     @Autowired
     private CategoriaService categoriaService;
-    
+
     @Autowired
     private FirebaseStorageService firebaseStorageService;
 
@@ -39,17 +38,15 @@ public class ProductoController {
         return "/producto/listado";
     }
 
-    
-    
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "producto", 
+                            imagenFile,
+                            "producto",
                             producto.getIdProducto()));
         }
         productoService.save(producto);
@@ -70,4 +67,7 @@ public class ProductoController {
         model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
+
+    
+
 }
