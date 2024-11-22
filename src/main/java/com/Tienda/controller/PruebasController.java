@@ -83,5 +83,23 @@ public class PruebasController {
         model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
+    
+    // ESTO ES LA PRACTICA #4
+    @GetMapping("/practica")
+    public String practica4(Model model) {
+        List<Producto>  productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        return "/pruebas/practica4";
+    }
+    
+    @PostMapping("/consulta1")
+    public String consulta1(@RequestParam(value = "existencia") int existencia, Model model) {
+        List<Producto> productos = productoService.buscarExistencia(existencia);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("existencia", existencia);
+        return "/pruebas/practica4";
+    }
 
 }
