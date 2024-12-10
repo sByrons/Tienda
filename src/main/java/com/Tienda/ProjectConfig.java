@@ -85,7 +85,6 @@ public class ProjectConfig implements WebMvcConfigurer {
 //                .build();
 //        return new InMemoryUserDetailsManager(user, sales, admin);
 //    }
-    
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -98,7 +97,8 @@ public class ProjectConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**", "/error",
+                .requestMatchers("/", "/index", "/errores/**", "/error", 
+                        "/refrescarBoton",
                         "/carrito/**", "/pruebas/**", "/reportes/**",
                         "/registro/**", "/js/**", "/webjars/**")
                 .permitAll()
